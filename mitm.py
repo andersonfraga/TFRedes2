@@ -33,10 +33,11 @@ def mitm(ip_vitima01, ip_vitima02, mac_atacante):
 #		# send data here
 #		s.close()
 
-		time.sleep(1)
+#ip_vitima01 = "2001:db8:0:1:d1:89ec:891:eba3"
+#ip_vitima02 = "2001:1bcd:123:1:4c75:483:eb42:ba9c"
 
-ip_vitima01 = "2001:db8:0:1:d1:89ec:891:eba3"
-ip_vitima02 = "2001:1bcd:123:1:4c75:483:eb42:ba9c"
+ip_vitima01 = "2001:db8:0:1:acc3:a921:762c:d319"
+ip_vitima02 = "2001:db8:0:1:d1:89ec:891:eba3"
 
 mac_atacante = "a4:1f:72:f5:90:50"
 
